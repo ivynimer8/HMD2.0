@@ -1,0 +1,15 @@
+import machine
+import utime
+
+# Configure the GPIO pin for output (change as needed)
+clock_pin = machine.Pin(25, machine.Pin.OUT)
+
+try:
+    while True:
+        # Toggle the clock pin to generate a 480Hz clock signal
+        clock_pin.on()
+        utime.sleep_us(1041)  # Approximately 480Hz (1/480 = 2083.33us period)
+        clock_pin.off()
+        utime.sleep_us(1041)  # Approximately 480Hz (1/480 = 2083.33us period)
+except KeyboardInterrupt:
+    pass
